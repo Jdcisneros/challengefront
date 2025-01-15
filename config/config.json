@@ -18,7 +18,7 @@
   "production": {
     "username": "postgres",
     "password": "admin",
-    "database": "todo_prod",
+    "database": "todos",
     "host": "challengeback-production-5229.up.railway.app",
     "dialect": "postgres",
     "port": 5432
