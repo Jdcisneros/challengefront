@@ -6,23 +6,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.authenticate = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const authenticate = (req, res, next) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        res.status(401).json({ message: 'Unauthorized: Token not provided' });
+        return;
+    }
+    const token = authHeader.split(' ')[1];
     try {
-        // Obtener el token del encabezado Authorization
-        const authHeader = req.headers.authorization;
-        if (!authHeader || !authHeader.startsWith('Bearer ')) {
-            res.status(401).json({ message: 'No autorizado: Token no proporcionado' });
-            return;
-        }
-        const token = authHeader.split(' ')[1];
-        // Verificar el token
         const secretKey = process.env.JWT_SECRET || 'defaultsecret';
         const decoded = jsonwebtoken_1.default.verify(token, secretKey);
-        // Agregar el usuario decodificado a la request
-        req.user = decoded;
-        next();
+        if (typeof decoded === 'object' && decoded.id && decoded.email) {
+            req.user = { id: decoded.id, email: decoded.email };
+            next();
+        }
+        else {
+            res.status(401).json({ message: 'Unauthorized: Invalid token' });
+            return;
+        }
     }
     catch (error) {
-        res.status(401).json({ message: 'No autorizado: Token inválido o expirado' });
+        res.status(401).json({ message: 'Unauthorized: Invalid or expired token' });
         return;
     }
 };

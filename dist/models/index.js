@@ -19,17 +19,14 @@ const User_1 = __importDefault(require("./User"));
 exports.User = User_1.default;
 const Todo_1 = __importDefault(require("./Todo"));
 exports.Todo = Todo_1.default;
-// Definir relaciones
 User_1.default.hasMany(Todo_1.default, { foreignKey: 'userId', as: 'todos' });
 Todo_1.default.belongsTo(User_1.default, { foreignKey: 'userId', as: 'user' });
-// Sincronizar modelos
 const syncDatabase = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield database_1.sequelize.sync({ alter: true }); // Usa alter para ajustar los cambios
-        console.log('Modelos sincronizados con la base de datos');
+        yield database_1.sequelize.sync({ alter: false });
     }
     catch (error) {
-        console.error('Error al sincronizar la base de datos:', error);
+        console.error('Error syncing database:', error);
     }
 });
 exports.syncDatabase = syncDatabase;

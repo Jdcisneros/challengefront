@@ -1,8 +1,8 @@
 import express from 'express';
 import { createTodo, getTodos, getTodoById, updateTodo, deleteTodo } from '../controllers/todoController';
-import { authenticate } from '../../src/middleware/authMiddleware';
-import { validateSchema } from '../../src/middleware/validateSchema';
-import { todoSchema, updateTodoSchema } from '../../src/schemas/todoSchema';
+import { authenticate } from '../middleware/authMiddleware';
+import { validateSchema } from '../middleware/validateSchema';
+import { todoSchema, updateTodoSchema } from '../schemas/todoSchema';
 
 
 const router = express.Router();
