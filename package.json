@@ -6,7 +6,7 @@
     "build": "tsc",
     "dev": "ts-node-dev src/index.ts",
     "test": "jest",
-     "start": "ts-node src/index.ts"
+     "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
