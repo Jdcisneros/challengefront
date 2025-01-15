@@ -3,7 +3,7 @@
     "username": "postgres",
     "password": "admin",
     "database": "todo",
-    "host": "challengeback-2.onrender.com",
+    "host": "challengeback-production-5229.up.railway.app/",
     "dialect": "postgres",
     "port": 5432
   },
@@ -11,7 +11,7 @@
     "username": "postgres",
     "password": "admin",
     "database": "todo_test",
-    "host": "challengeback-2.onrender.com",
+    "host": "challengeback-production-5229.up.railway.app/",
     "dialect": "postgres",
     "port": 5432
   },
@@ -19,7 +19,7 @@
     "username": "postgres",
     "password": "admin",
     "database": "todo",
-    "host": "challengeback-2.onrender.com",
+    "host": "challengeback-production-5229.up.railway.app/",
     "dialect": "postgres",
     "port": 5432
   }
