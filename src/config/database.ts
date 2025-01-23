@@ -1,15 +1,17 @@
 import { Sequelize } from 'sequelize';
-import dontenv from 'dotenv'
+import dotenv from 'dotenv';
 
-dontenv.config()
+dotenv.config();
 
-const sequelize = new Sequelize({
-  dialect: 'postgres',
-  host: process.env.DB_HOST,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASSWORD, 
-  database: process.env.DB_NAME, 
-  logging: false,  
+// Usar DATABASE_URL para la conexión
+const sequelize = new Sequelize(process.env.DATABASE_URL!, {
+  dialect: 'postgres', // O 'mysql' si es el caso
+  dialectOptions: {
+    ssl: {
+      rejectUnauthorized: false // Esto es necesario para algunas bases de datos en la nube
+    }
+  },
+  logging: false, // Opcional: si no quieres ver las consultas SQL
 });
 
 export { sequelize };
