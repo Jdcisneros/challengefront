@@ -1,9 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import authRoutes from './routes/authRoutes';
-import { syncDatabase } from "./models";
-import todoRoutes from "./routes/todoRoutes";
+import authRoutes from './src/routes/authRoutes';
+import { syncDatabase } from "./src/models";
+import todoRoutes from "./src/routes/todoRoutes";
 dotenv.config();
 
 const PORT = process.env.PORT || 10000;
