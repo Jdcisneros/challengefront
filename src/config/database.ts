@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const sequelize = new Sequelize(process.env.SUPABASE_URL!, {
+const sequelize = new Sequelize(process.env.DATABASE_URL!, {
   dialect: 'postgres',
   dialectModule: require('pg'),
   dialectOptions: {
