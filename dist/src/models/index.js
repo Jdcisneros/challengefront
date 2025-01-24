@@ -13,8 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Todo = exports.User = exports.syncDatabase = exports.sequelize = void 0;
-const database_1 = require("../config/database");
-Object.defineProperty(exports, "sequelize", { enumerable: true, get: function () { return database_1.sequelize; } });
+const database_1 = __importDefault(require("../config/database"));
+exports.sequelize = database_1.default;
 const User_1 = __importDefault(require("./User"));
 exports.User = User_1.default;
 const Todo_1 = __importDefault(require("./Todo"));
@@ -23,7 +23,7 @@ User_1.default.hasMany(Todo_1.default, { foreignKey: 'userId', as: 'todos' });
 Todo_1.default.belongsTo(User_1.default, { foreignKey: 'userId', as: 'user' });
 const syncDatabase = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield database_1.sequelize.sync({ alter: false });
+        yield database_1.default.sync({ alter: false });
     }
     catch (error) {
         console.error('Error syncing database:', error);
