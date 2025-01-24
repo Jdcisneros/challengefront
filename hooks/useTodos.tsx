@@ -109,7 +109,7 @@ export const useTodos = () => {
       dispatch(updateTask(response.data));
       showAlert("Task edited successfully", "success")
     } catch {
-      dispatch(setError("Error al actualizar la tarea."));
+      dispatch(setError("Error edited Task"));
       showAlert("Error edited Task", "error")
     } finally {
       dispatch(setLoading(false));

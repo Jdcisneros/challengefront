@@ -35,7 +35,7 @@ export default function LoginForm() {
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
-      const response = await axios.post(`"${urlBack}api/login"`, data);
+      const response = await axios.post(`${urlBack}api/login`, data);
       const { token, user } = response.data;
       dispatch(setCredentials({ token, user }));
       setAlertSeverity("success");
