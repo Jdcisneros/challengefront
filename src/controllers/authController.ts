@@ -13,7 +13,9 @@ export const register = async (req: Request, res: Response) => {
   try {
     const { username, email, password } = req.body;
 
-    const existingUser = await User.findOne({ where: { email } });
+    const lowerCaseEmail = email.toLowerCase()
+
+    const existingUser = await User.findOne({ where: { email:lowerCaseEmail } });
     if (existingUser) {
       res.status(400).json({ message: 'User already exists' });
       return 
