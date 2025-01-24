@@ -1,15 +1,18 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "dist/index.js",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "dist/index.js"
-      }
-    ]
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.ts"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "postgresql://postgres:TngiQLqnuFMwwTuQXIEsuzXhcEwSgtBQ@postgres.railway.internal:5432/railway" 
+}
+}

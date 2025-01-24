@@ -7,7 +7,7 @@
     "dev": "ts-node-dev index.ts",
     "test": "jest",
     "start": "node dist/index.js",
-     "postinstall": "npm install pg",
+    "postinstall": "npm install pg",
     "vercel-build": "npm run build"
   },
   "keywords": [],
@@ -51,6 +51,6 @@
     "typescript": "^5.7.3"
   },
   "engines": {
-  "node": "20.18.0"
-}
+    "node": "20.18.0"
+  }
 }
